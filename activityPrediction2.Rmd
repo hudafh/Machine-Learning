@@ -3,8 +3,8 @@ title: "Exercise Manner Prediction"
 author: "Hugo Barros"
 date: "November 19, 2017"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
