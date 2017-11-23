@@ -92,7 +92,9 @@ confusionMatrix(predict(ldamod,trClean),trClean[,46])$overall[1]
 
 
 ```{r Lda plot}
+
 plot(predict(ldamod,trClean),trClean[,46])
+
 ``` 
  
 ### RPART 
@@ -105,7 +107,9 @@ confusionMatrix(predict(rpartmod,trClean),trClean[,"classe"])$overall[1]
 ```
 
 ```{r Rpart plot}
+
 plot(predict(rpartmod,trClean),trClean[,46])
+
 ``` 
    
    
@@ -134,7 +138,9 @@ confusionMatrix(predict(fit,trClean),trClean[,"classe"])$overall[1]
 ```
 
 ```{r Random Forest Plot}
+
 plot(predict(fit,trClean),trClean[,46])
+
 ```
  
   The expected out-of-sample error of our random forrest model is 0.12% () (as per our model's "final model" parameter). It seems to us, that the random forrest is quite accurate .
@@ -163,7 +169,7 @@ fit$finalModel
 ###  RandomForrest
    
 
-```{r cache=TRUE}
+```{r Random Forrest Prediction, cache=TRUE}
   rf_prediction <- predict(fit,testClean)
   rf_prediction
 ```
@@ -174,6 +180,7 @@ fit$finalModel
   Because there is still a quiz part of the assignment, we won't reveal how well our models performed (well, you can go try it for yourself ;) ). However, we know,by trying our predictions, that Random Forrest was far more accurate than the other two methods.
   
     We hope this document was clear, explanatory, and demonstrative of the steps taken to use data to predict outcomes.
+    
     
 Thank You,    
     
