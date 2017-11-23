@@ -175,4 +175,6 @@ fit$finalModel
   
     We hope this document was clear, explanatory, and demonstrative of the steps taken to use data to predict outcomes.
     
+Thank You,    
+    
     
