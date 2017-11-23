@@ -207,14 +207,14 @@ confusionMatrix(predict(fit,trClean),trClean[,&quot;classe&quot;])$overall[1]</c
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 23
 ## 
-##         OOB estimate of  error rate: 0.12%
+##         OOB estimate of  error rate: 0.11%
 ## Confusion matrix:
 ##      A    B    C    D    E  class.error
 ## A 5577    2    0    0    1 0.0005376344
-## B    5 3790    2    0    0 0.0018435607
-## C    0    6 3416    0    0 0.0017533606
-## D    0    0    5 3210    1 0.0018656716
-## E    0    0    0    2 3605 0.0005544774</code></pre>
+## B    3 3792    2    0    0 0.0013168291
+## C    0    5 3417    0    0 0.0014611338
+## D    0    0    6 3209    1 0.0021766169
+## E    0    0    0    1 3606 0.0002772387</code></pre>
 </div>
 </div>
 <div id="predictions-on-test-set" class="section level2">
@@ -246,6 +246,7 @@ confusionMatrix(predict(fit,trClean),trClean[,&quot;classe&quot;])$overall[1]</c
 <h2>Conclusion</h2>
 <p>Because there is still a quiz part of the assignment, we won’t reveal how well our models performed (well, you can go try it for yourself ;) ). However, we know,by trying our predictions, that Random Forrest was far more accurate than the other two methods.</p>
 <pre><code>We hope this document was clear, explanatory, and demonstrative of the steps taken to use data to predict outcomes.</code></pre>
+<p>Thank You,</p>
 </div>
 
 
