@@ -88,10 +88,12 @@ ldamod <- train(classe ~ ., data = trClean, method="lda")
 
 confusionMatrix(predict(ldamod,trClean),trClean[,46])$overall[1]
 
-plot(predict(ldamod,trClean),trClean[,46])
-
 ```
- 
+
+
+```{r Lda plot}
+plot(predict(ldamod,trClean),trClean[,46])
+``` 
  
 ### RPART 
 (rpart modeling, prediction on train data and then test data)
@@ -99,9 +101,15 @@ plot(predict(ldamod,trClean),trClean[,46])
 rpartmod <- train(classe ~ ., data = trClean, method="rpart")
 confusionMatrix(predict(rpartmod,trClean),trClean[,"classe"])$overall[1]
 
-plot(predict(rpartmod,trClean),trClean[,46])
+
 ```
 
+```{r r-part plot}
+plot(predict(rpartmod,trClean),trClean[,46])
+``` 
+   
+   
+   
    As far as accuracy on the train data, lda is performing better than rpart. Still, both models are not very accurate even on the data where they were trained. However, that does not mean they wouldn't perform better on the test data.
 
 
@@ -122,6 +130,10 @@ fit <- train(x,y,method = "rf", data=trClean,trControl = fitControl)
 
 confusionMatrix(predict(fit,trClean),trClean[,"classe"])$overall[1]
 
+
+```
+
+```{r Random Forest Plot}
 plot(predict(fit,trClean),trClean[,46])
 ```
  
