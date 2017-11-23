@@ -43,7 +43,7 @@ joint <- rbind(traindat[,-160], testdat[,-160])
 
    Now we will remove columns with only zero-values, that are highly correlated, and those where 90% or more of their values are NAs. 
    
-```{r data cleaning}
+```{r}
 pre_joint <- preProcess(joint,method = c("zv","corr"))
 joint1 <- predict(pre_joint,joint)
 na_count <- sapply(joint1, function(y) sum(is.na(y)))
@@ -54,7 +54,7 @@ zeroNA <- joint1[,(na_count/nrow(joint1)) < 0.90]
    Now we have a dataframe without columns composed of only zero-values, or mostly of NAs, which makes us ready to split the dataframe back into a training and a test datasets.
    We will also add the last column of training data(classe) that we removed when we joined the two datasets
    
-```{r joint dataframe split }
+```{r}
 trClean <- zeroNA[1:19622,]
 testClean <- zeroNA[19623:19642,]
 trClean$classe <- traindat$classe
@@ -66,7 +66,7 @@ trClean$classe <- traindat$classe
 
    On the train dataframe, it is imperative to do some variable selection in order to get rid of some of the noise of variables that are not likely to be related to the outcome. Some of these variables are: X, user_name, the timestamps(all three of them).
    
-```{r variable selection}   
+```{r}   
 trClean <- trClean[,-c(1:6)]
 ```
    
@@ -83,7 +83,7 @@ trClean <- trClean[,-c(1:6)]
   
 ### LDA   
   (lda modeling, prediction on train data and then test data)
-```{r lda modeling}  
+```{r }  
 ldamod <- train(classe ~ ., data = trClean, method="lda")
 
 confusionMatrix(predict(ldamod,trClean),trClean[,46])$overall[1]
@@ -97,14 +97,14 @@ plot(predict(ldamod,trClean),trClean[,46])
  
 ### RPART 
 (rpart modeling, prediction on train data and then test data)
-```{r Rpart modeling}
+```{r }
 rpartmod <- train(classe ~ ., data = trClean, method="rpart")
 confusionMatrix(predict(rpartmod,trClean),trClean[,"classe"])$overall[1]
 
 
 ```
 
-```{r Rpart plot}
+```{r r-part plot}
 plot(predict(rpartmod,trClean),trClean[,46])
 ``` 
    
@@ -174,7 +174,5 @@ fit$finalModel
   Because there is still a quiz part of the assignment, we won't reveal how well our models performed (well, you can go try it for yourself ;) ). However, we know,by trying our predictions, that Random Forrest was far more accurate than the other two methods.
   
     We hope this document was clear, explanatory, and demonstrative of the steps taken to use data to predict outcomes.
-    
-Thank You,    
     
     
